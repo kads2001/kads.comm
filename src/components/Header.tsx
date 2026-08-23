@@ -4,14 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import KadsLogo from "./KadsLogo";
 
 const NAV_ITEMS = [
   { name: "Services", href: "/services" },
-  { name: "Our Work", href: "/work" },
-  { name: "Methodology", href: "/process" },
-  { name: "About Us", href: "/about" },
+  { name: "Work", href: "/work" },
+  { name: "Process", href: "/process" },
+  { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -32,18 +32,30 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "py-3.5 bg-white/95 backdrop-blur-md border-b border-zinc-200/80 shadow-xs text-[#0d0d11]"
+            ? "py-3 bg-white/95 backdrop-blur-md border-b border-zinc-200/80 shadow-[var(--kads-shadow-sm)] text-[var(--kads-text)]"
             : isDarkHeader
-            ? "py-5 bg-transparent border-b border-transparent text-white"
-            : "py-5 bg-transparent border-b border-transparent text-[#0d0d11]"
+            ? "py-4 bg-transparent border-b border-transparent text-white"
+            : "py-4 bg-transparent border-b border-transparent text-[var(--kads-text)]"
         }`}
       >
-        <div className="w-[90%] max-w-[1500px] mx-auto flex items-center justify-between">
+        <div className="kads-container flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="focus:outline-none flex items-center">
             <KadsLogo
@@ -55,11 +67,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav
-            className={`hidden md:flex items-center gap-1 rounded-[7px] px-4 py-1.5 backdrop-blur-md transition-colors ${
+            className={`hidden lg:flex items-center gap-1 rounded-[var(--kads-radius-sm)] px-3 py-1.5 backdrop-blur-md transition-colors ${
               isDarkHeader
-                ? "bg-white/10 border border-white/20 text-white"
-                : "bg-[#f4f4f7] border border-zinc-200/90 text-zinc-700"
+                ? "bg-white/10 border border-white/15 text-white"
+                : "bg-zinc-50 border border-zinc-200/80 text-zinc-700"
             }`}
+            aria-label="Main navigation"
           >
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
@@ -67,21 +80,22 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`relative px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 rounded-[7px] ${
+                  className={`relative px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 rounded-[var(--kads-radius-sm)] ${
                     isActive
                       ? isDarkHeader
                         ? "text-black font-extrabold"
                         : "text-white font-extrabold"
                       : isDarkHeader
                       ? "text-zinc-200 hover:text-white hover:bg-white/10"
-                      : "text-zinc-600 hover:text-black hover:bg-white/80"
+                      : "text-zinc-600 hover:text-black hover:bg-white"
                   }`}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="navPill"
-                      className={`absolute inset-0 rounded-[7px] -z-10 shadow-xs ${
-                        isDarkHeader ? "bg-white" : "bg-[#8b5cf6]"
+                      className={`absolute inset-0 rounded-[var(--kads-radius-sm)] -z-10 shadow-xs ${
+                        isDarkHeader ? "bg-white" : "bg-[var(--kads-purple)]"
                       }`}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -92,28 +106,27 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right CTA - Solid Brand Purple (No Gradient Fade) */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#8b5cf6] hover:bg-[#6d28d9] transition-all duration-200 rounded-[7px] shadow-md active:scale-95"
+              className="relative inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[var(--kads-purple)] hover:bg-[var(--kads-purple-hover)] transition-all duration-200 rounded-[var(--kads-radius-sm)] shadow-[var(--kads-shadow-purple)] active:scale-95"
             >
-              <span className="relative flex items-center gap-1.5">
-                Let&apos;s Talk
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </span>
+              <span>Start a Project</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden relative p-2.5 rounded-xl border focus:outline-none transition-colors ${
+            className={`lg:hidden relative p-2.5 rounded-[var(--kads-radius-md)] border focus:outline-none transition-colors ${
               isDarkHeader
                 ? "bg-white/10 border-white/20 text-white"
                 : "bg-zinc-100 border-zinc-200 text-zinc-800"
             }`}
-            aria-label="Toggle Navigation Menu"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -128,23 +141,26 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 md:hidden bg-white/98 backdrop-blur-xl flex flex-col text-[#0d0d11]"
+            className="fixed inset-0 z-50 lg:hidden bg-white flex flex-col text-[var(--kads-text)]"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
           >
-            <div className="px-6 py-5 flex items-center justify-between border-b border-zinc-200">
+            <div className="px-6 py-4 flex items-center justify-between border-b border-zinc-200">
               <Link href="/" onClick={() => setMobileMenuOpen(false)}>
                 <KadsLogo size="md" variant="dark" showTagline={false} />
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-xl bg-zinc-100 text-black"
-                aria-label="Close Navigation Menu"
+                className="p-2 rounded-[var(--kads-radius-md)] bg-zinc-100 text-black"
+                aria-label="Close navigation menu"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
 
             <div className="flex-1 px-6 py-8 flex flex-col justify-between overflow-y-auto">
-              <div className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-2" aria-label="Mobile navigation">
                 {NAV_ITEMS.map((item, idx) => (
                   <motion.div
                     key={item.name}
@@ -155,27 +171,29 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`text-2xl font-extrabold flex items-center justify-between py-2 border-b border-zinc-100 ${
-                        pathname === item.href ? "text-[#8b5cf6]" : "text-zinc-700 hover:text-black"
+                      className={`text-2xl font-extrabold flex items-center justify-between py-3 border-b border-zinc-100 ${
+                        pathname === item.href ? "text-[var(--kads-purple)]" : "text-zinc-700 hover:text-black"
                       }`}
+                      aria-current={pathname === item.href ? "page" : undefined}
                     >
                       <span>{item.name}</span>
-                      <ArrowUpRight className="w-5 h-5 text-zinc-400" />
+                      <ArrowRight className="w-5 h-5 text-zinc-400" />
                     </Link>
                   </motion.div>
                 ))}
-              </div>
+              </nav>
 
               <div className="pt-6 border-t border-zinc-200 space-y-4">
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-4 bg-[#8b5cf6] text-white text-center font-extrabold text-base rounded-2xl flex items-center justify-center gap-2 shadow-md"
+                  className="w-full py-4 bg-[var(--kads-purple)] text-white text-center font-extrabold text-base rounded-[var(--kads-radius-md)] flex items-center justify-center gap-2 shadow-[var(--kads-shadow-purple)]"
                 >
-                  <span>Initiate a Project</span>
+                  <span>Start a Project</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
-                <p className="text-xs text-zinc-500 text-center uppercase tracking-wider font-bold">
-                  IDEAS • DESIGN • SOLUTIONS
+                <p className="text-xs text-zinc-500 text-center font-medium">
+                  hello@kads.com
                 </p>
               </div>
             </div>

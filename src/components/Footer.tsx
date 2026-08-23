@@ -1,128 +1,115 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Mail,
-  Phone,
-  MapPin,
-  Globe,
-  Code2,
-  Search,
-  Smartphone,
-  Share2,
-  Video,
-  Palette,
-} from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import KadsLogo from "./KadsLogo";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d0d11] text-white border-t border-zinc-800 pt-20 pb-12 font-sans">
-      <div className="w-[90%] max-w-[1500px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+    <footer className="bg-[var(--kads-dark)] text-white border-t border-[var(--kads-border-dark)] pt-20 pb-12 font-sans">
+      <div className="kads-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Col 1: Brand Info */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-1 space-y-5">
             <Link href="/">
-              <KadsLogo size="lg" variant="light" showTagline={true} />
+              <KadsLogo size="lg" variant="light" showTagline={false} />
             </Link>
-            <p className="text-zinc-400 text-sm leading-relaxed max-w-md">
-              Full-Stack Digital Transformation Studio. Engineering custom Next.js web applications, WordPress platforms, technical search rankings, mobile apps, and viral media systems.
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
+              Independent technology &amp; design studio. We build custom web applications, optimized WordPress sites, mobile apps, and digital growth strategies.
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+            <div className="flex items-center gap-3 pt-1">
+              <span className="w-2.5 h-2.5 rounded-full bg-[var(--kads-purple)] animate-pulse" />
               <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
-                Accepting New Q3/Q4 Enterprise & Growth Projects
+                Accepting New Projects
               </span>
             </div>
           </div>
 
-          {/* Col 2: Capabilities Sitemap */}
+          {/* Col 2: Services */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-              Capabilities
+              Services
             </h4>
             <ul className="space-y-2.5 text-sm font-medium text-zinc-300">
               <li>
-                <Link href="/services/web-development" className="hover:text-[#8b5cf6] transition-colors">
-                  Custom Next.js Web Apps
+                <Link href="/services/web-development" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Web Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/wordpress-cms" className="hover:text-[#8b5cf6] transition-colors">
-                  WordPress & E-Commerce
+                <Link href="/services/wordpress-cms" className="hover:text-[var(--kads-purple)] transition-colors">
+                  WordPress &amp; E-Commerce
                 </Link>
               </li>
               <li>
-                <Link href="/services/seo-optimization" className="hover:text-[#8b5cf6] transition-colors">
-                  Technical SEO Dominance
+                <Link href="/services/seo-optimization" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Technical SEO
                 </Link>
               </li>
               <li>
-                <Link href="/services/mobile-app-development" className="hover:text-[#8b5cf6] transition-colors">
-                  iOS & Android Mobile Apps
+                <Link href="/services/mobile-app-development" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Mobile App Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/social-media-design" className="hover:text-[#8b5cf6] transition-colors">
-                  Social Posts & Ad Creatives
+                <Link href="/services/social-media-design" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Social Media &amp; Video
                 </Link>
               </li>
               <li>
-                <Link href="/services/video-production-motion" className="hover:text-[#8b5cf6] transition-colors">
-                  3D Reels & Video Motion
+                <Link href="/services/graphic-design-branding" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Branding &amp; Design
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Company & Methods */}
+          {/* Col 3: Company */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
               Company
             </h4>
             <ul className="space-y-2.5 text-sm font-medium text-zinc-300">
               <li>
-                <Link href="/work" className="hover:text-[#8b5cf6] transition-colors">
-                  Selected Portfolio
+                <Link href="/work" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Selected Work
                 </Link>
               </li>
               <li>
-                <Link href="/process" className="hover:text-[#8b5cf6] transition-colors">
-                  5-Stage Methodology
+                <Link href="/process" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Our Process
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#8b5cf6] transition-colors">
-                  About Our Studio
+                <Link href="/about" className="hover:text-[var(--kads-purple)] transition-colors">
+                  About KADS
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#8b5cf6] transition-colors">
-                  Scope Estimator & Brief
+                <Link href="/contact" className="hover:text-[var(--kads-purple)] transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Contact & Locations */}
+          {/* Col 4: Contact */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
-              Direct Contact
+              Get in Touch
             </h4>
-            <div className="space-y-3 text-xs text-zinc-300 font-medium">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#8b5cf6]" />
+            <div className="space-y-3 text-sm text-zinc-300 font-medium">
+              <a
+                href="mailto:hello@kads.com"
+                className="flex items-center gap-2.5 hover:text-[var(--kads-purple)] transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[var(--kads-purple)]" />
                 <span>hello@kads.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#8b5cf6]" />
-                <span>+1 (800) KADS-COM</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#8b5cf6]" />
-                <span>San Francisco · London · Mumbai</span>
+              </a>
+              <div className="flex items-center gap-2.5">
+                <MapPin className="w-4 h-4 text-[var(--kads-purple)]" />
+                <span>Remote-First Studio</span>
               </div>
             </div>
           </div>
@@ -131,7 +118,7 @@ export default function Footer() {
         {/* Bottom Copyright Bar */}
         <div className="pt-8 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 font-medium gap-4">
           <div>
-            © {new Date().getFullYear()} KADS.COM — IDEAS • DESIGN • SOLUTIONS. All rights reserved.
+            © {new Date().getFullYear()} KADS.COM — All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">
@@ -140,9 +127,6 @@ export default function Footer() {
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">
               Terms of Service
-            </Link>
-            <Link href="/sitemap.xml" className="hover:text-white transition-colors">
-              XML Sitemap
             </Link>
           </div>
         </div>

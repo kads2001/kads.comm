@@ -1,60 +1,65 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, Sparkles, Layers, Zap, ShieldCheck, Heart } from "lucide-react";
+import { TrendingUp, ShieldCheck, Zap, Heart } from "lucide-react";
 
 const PILLARS = [
   {
     index: "01",
-    title: "Zero Boilerplate AI Shlock",
-    headline: "Engineered from first principles by senior human craftsmen.",
+    title: "Business-First Thinking",
+    headline: "Every decision is driven by your business goals.",
     description:
-      "We do not cut corners with generic AI-generated codebases. Every component, database schema, and typography token is hand-crafted with architectural intention.",
-    icon: Heart,
-  },
-  {
-    index: "02",
-    title: "Full-Funnel Cohesion",
-    headline: "Code, SEO, video, and design moving in unison.",
-    description:
-      "A fast website means nothing without organic search traffic; great videos mean nothing without high-converting landing pages. We align the entire stack.",
+      "We don't build for the sake of building. Every design choice, technology selection, and feature prioritization is guided by what will actually move your metrics — traffic, conversions, and revenue.",
     icon: TrendingUp,
   },
   {
-    index: "03",
-    title: "100% Client Ownership",
-    headline: "You own every single line of code, asset, and key.",
+    index: "02",
+    title: "Design + Technology Together",
+    headline: "Beautiful interfaces backed by solid engineering.",
     description:
-      "Full GitHub repository handover, Figma source files, 4K master video renders, and domain DNS setup. No vendor hostage games or recurring licensing fees.",
+      "Most agencies separate design from development. We integrate both disciplines from day one, ensuring what looks great also performs great — fast load times, clean code, and intuitive UX.",
+    icon: Heart,
+  },
+  {
+    index: "03",
+    title: "You Own Everything",
+    headline: "100% code, design, and asset ownership.",
+    description:
+      "Full GitHub repository handover, Figma source files, and all creative assets. No vendor lock-in, no recurring licensing fees — your project belongs to you completely.",
     icon: ShieldCheck,
   },
   {
     index: "04",
-    title: "Sub-Second Global Performance",
-    headline: "Speed is the #1 driver of search rankings and sales.",
+    title: "Performance-Obsessed",
+    headline: "Speed is a feature we never compromise on.",
     description:
-      "We enforce strict 100/100 Lighthouse performance metrics, serverless edge caching, and lightweight asset bundling across every single project.",
+      "We target 100/100 Lighthouse scores, optimize Core Web Vitals, and use modern hosting with edge delivery. Because a fast website isn't a luxury — it's a necessity for search rankings and user retention.",
     icon: Zap,
   },
 ];
 
 export default function WhyKadsSection() {
   return (
-    <section id="why-us" className="relative py-24 bg-zinc-50 border-b border-zinc-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section
+      id="why-kads"
+      className="relative bg-[var(--kads-bg-alt)] border-b border-[var(--kads-border)]"
+      style={{ paddingTop: "var(--kads-section-py)", paddingBottom: "var(--kads-section-py)" }}
+    >
+      <div className="kads-container relative z-10">
         <div className="max-w-3xl mb-16">
-          <div className="text-xs font-mono font-bold uppercase tracking-widest text-zinc-500 mb-3">
-            [ THE KADS STANDARD ]
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#111113] tracking-tight">
-            Why ambitious brands partner with us.
+          <span className="kads-pill mb-4 block w-fit">
+            <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+            <span>WHY KADS</span>
+          </span>
+          <h2 className="kads-heading mb-3">
+            Why businesses choose to work with us.
           </h2>
-          <p className="text-zinc-600 text-base mt-3">
-            The distinct human advantages that separate our studio from generic digital agencies.
+          <p className="kads-subheading">
+            We&apos;re a modern digital studio that combines strategy, design, and technology to build solutions that actually work.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PILLARS.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
@@ -64,30 +69,25 @@ export default function WhyKadsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="p-8 sm:p-10 rounded-3xl studio-card bg-white border border-zinc-200 hover:border-[#111113] hover:shadow-lg transition-all flex flex-col justify-between"
+                className="kads-card p-8 sm:p-10 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="font-mono text-xs font-bold text-zinc-500 uppercase tracking-widest">
-                      [ PILLAR {pillar.index} ] — {pillar.title}
+                    <span className="text-xs font-bold text-[var(--kads-text-subtle)] uppercase tracking-widest">
+                      {pillar.index} — {pillar.title}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-[#111113]">
+                    <div className="w-10 h-10 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple-light)] border border-purple-200 flex items-center justify-center text-[var(--kads-purple)]">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#111113] mb-3 leading-snug">
+                  <h3 className="text-lg sm:text-xl font-bold text-[var(--kads-text)] mb-3 leading-snug">
                     {pillar.headline}
                   </h3>
 
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-6">
+                  <p className="text-[var(--kads-text-muted)] text-sm leading-relaxed">
                     {pillar.description}
                   </p>
-                </div>
-
-                <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs font-mono text-zinc-500 font-medium">
-                  <span>GUARANTEED STANDARD</span>
-                  <span className="text-[#111113] font-bold">● Active Practice</span>
                 </div>
               </motion.div>
             );

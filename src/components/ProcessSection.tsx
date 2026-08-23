@@ -130,27 +130,31 @@ export default function ProcessSection() {
   const current = STEPS[activeStep];
 
   return (
-    <section id="process" className="relative py-24 sm:py-32 bg-white text-[#0d0d11] border-b border-zinc-200">
-      <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
+    <section
+      id="process"
+      className="relative bg-white text-[var(--kads-text)] border-b border-[var(--kads-border)]"
+      style={{ paddingTop: "var(--kads-section-py)", paddingBottom: "var(--kads-section-py)" }}
+    >
+      <div className="kads-container relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-purple-50 border border-purple-200 text-xs font-bold uppercase tracking-wider text-[#8b5cf6]">
-              <span className="w-2 h-2 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
-              <span>HOW WE WORK • PROVEN METHODOLOGY</span>
+            <span className="kads-pill">
+              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span>OUR PROCESS</span>
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0d0d11] tracking-tight leading-[1.15]">
-              From Discovery to Global Scale.
+            <h2 className="kads-heading">
+              How We Work.
             </h2>
-            <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">
-              Our phased 5-stage lifecycle guarantees transparent milestones, rapid sprints, and reliable quality.
+            <p className="kads-subheading">
+              A structured 5-stage process that ensures transparent milestones, clear communication, and reliable delivery.
             </p>
           </div>
           <Link
             href="/process"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8b5cf6] hover:underline underline-offset-4 shrink-0"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--kads-purple)] hover:underline underline-offset-4 shrink-0"
           >
-            <span>Explore Full 5-Stage Framework</span>
+            <span>Learn More About Our Process</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

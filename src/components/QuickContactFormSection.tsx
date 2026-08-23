@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
+import { Send, CheckCircle2, Mail, MapPin, ChevronDown } from "lucide-react";
 
 const COUNTRY_CODES = [
   { code: "+1", country: "US/CA", flag: "🇺🇸" },
@@ -22,6 +22,8 @@ export default function QuickContactFormSection() {
     name: "",
     email: "",
     phone: "",
+    company: "",
+    service: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,80 +39,77 @@ export default function QuickContactFormSection() {
   };
 
   return (
-    <section id="quick-contact" className="relative py-24 sm:py-32 bg-[#f7f7f9] text-[#0d0d11] border-b border-zinc-200">
-      <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Headline & Clean Light Channels */}
+    <section
+      id="contact"
+      className="relative bg-[var(--kads-bg-alt)] text-[var(--kads-text)] border-b border-[var(--kads-border)]"
+      style={{ paddingTop: "var(--kads-section-py)", paddingBottom: "var(--kads-section-py)" }}
+    >
+      <div className="kads-container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left Column: Headline & Contact Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-purple-50 border border-purple-200 text-xs font-bold uppercase tracking-wider text-[#8b5cf6]">
-              <span className="w-2 h-2 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
-              <span>QUICK INQUIRY</span>
+            <span className="kads-pill">
+              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span>GET IN TOUCH</span>
             </span>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0d0d11] tracking-tight leading-[1.15]">
-              Ready to build something extraordinary?
+            <h2 className="kads-heading">
+              Let&apos;s build something that moves your business forward.
             </h2>
 
-            <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">
-              Send us a quick message below. Our Senior Technical Lead will get back to you within 24 hours.
+            <p className="kads-subheading">
+              Tell us about your project. We&apos;ll get back to you within 24 hours with a clear next step.
             </p>
 
-            {/* Clean Light Direct Contact Cards (Removed Black Patch Box) */}
+            {/* Direct Contact */}
             <div className="pt-2 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#8b5cf6] block">
-                KADS DIRECT CHANNELS
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--kads-purple)] block">
+                Direct Contact
               </span>
               <div className="grid grid-cols-1 gap-3">
-                <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/80 border border-zinc-200/80 shadow-xs backdrop-blur-sm">
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-[#8b5cf6] shrink-0">
+                <a
+                  href="mailto:hello@kads.com"
+                  className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)] hover:border-[var(--kads-purple)] transition-colors"
+                >
+                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple-light)] border border-purple-200 flex items-center justify-center text-[var(--kads-purple)] shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-zinc-500 uppercase tracking-wider font-semibold block">Email Support</span>
-                    <span className="text-sm font-bold text-[#0d0d11]">hello@kads.com</span>
+                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block">Email</span>
+                    <span className="text-sm font-bold text-[var(--kads-text)]">hello@kads.com</span>
                   </div>
-                </div>
+                </a>
 
-                <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/80 border border-zinc-200/80 shadow-xs backdrop-blur-sm">
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-[#8b5cf6] shrink-0">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] text-zinc-500 uppercase tracking-wider font-semibold block">Direct Line</span>
-                    <span className="text-sm font-bold text-[#0d0d11]">+1 (800) KADS-COM</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/80 border border-zinc-200/80 shadow-xs backdrop-blur-sm">
-                  <div className="w-9 h-9 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-[#8b5cf6] shrink-0">
+                <div className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
+                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple-light)] border border-purple-200 flex items-center justify-center text-[var(--kads-purple)] shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-zinc-500 uppercase tracking-wider font-semibold block">Global Studios</span>
-                    <span className="text-sm font-bold text-[#0d0d11]">San Francisco · London · Mumbai</span>
+                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block">Location</span>
+                    <span className="text-sm font-bold text-[var(--kads-text)]">Remote-First Studio</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Clean Simple Contact Form */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-zinc-200 shadow-sm">
+            <div className="p-8 sm:p-10 rounded-[var(--kads-radius-xl)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-12 text-center space-y-4"
                 >
-                  <div className="w-16 h-16 rounded-[7px] bg-purple-100 text-[#8b5cf6] flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-2xl bg-[var(--kads-purple-light)] text-[var(--kads-purple)] flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-[#0d0d11]">
+                  <h3 className="text-2xl font-extrabold text-[var(--kads-text)]">
                     Message Sent Successfully!
                   </h3>
-                  <p className="text-zinc-600 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you. A Senior Architect will review your note and respond within 24 hours.
+                  <p className="text-[var(--kads-text-muted)] text-sm max-w-md mx-auto leading-relaxed">
+                    Thank you for reaching out. We&apos;ll review your message and respond within 24 hours.
                   </p>
                 </motion.div>
               ) : (
@@ -118,64 +117,107 @@ export default function QuickContactFormSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div>
-                      <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      <label htmlFor="contact-name" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
                         Your Name *
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Jane Doe"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
                       />
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      <label htmlFor="contact-email" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
                         Work Email *
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="jane@company.com"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
                       />
                     </div>
                   </div>
 
-                  {/* Phone with Country Code Flag Dropdown */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Company */}
+                    <div>
+                      <label htmlFor="contact-company" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                        Company
+                      </label>
+                      <input
+                        id="contact-company"
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder="Your company name"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
+                      />
+                    </div>
+
+                    {/* Service Interest */}
+                    <div>
+                      <label htmlFor="contact-service" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                        Service Needed
+                      </label>
+                      <select
+                        id="contact-service"
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all appearance-none"
+                      >
+                        <option value="">Select a service</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="wordpress">WordPress & E-Commerce</option>
+                        <option value="seo">Technical SEO</option>
+                        <option value="mobile">Mobile App Development</option>
+                        <option value="social-video">Social Media & Video</option>
+                        <option value="branding">Branding & Design</option>
+                        <option value="other">Other / Not Sure</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Phone with Country Code */}
                   <div>
-                    <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
-                      Phone Number *
+                    <label htmlFor="contact-phone" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      Phone Number
                     </label>
                     <div className="relative flex items-center">
-                      {/* Country Flag Selector Dropdown Button */}
                       <button
                         type="button"
                         onClick={() => setShowCountryDropdown(!showCountryDropdown)}
-                        className="flex items-center gap-1.5 px-3.5 py-3.5 rounded-l-2xl bg-zinc-100 border border-r-0 border-zinc-200 text-xs font-bold text-zinc-800 hover:bg-zinc-200 transition-colors shrink-0"
+                        className="flex items-center gap-1.5 px-3.5 py-3.5 rounded-l-[var(--kads-radius-md)] bg-zinc-50 border border-r-0 border-[var(--kads-border)] text-xs font-bold text-zinc-800 hover:bg-zinc-100 transition-colors shrink-0"
+                        aria-expanded={showCountryDropdown}
+                        aria-haspopup="listbox"
                       >
                         <span className="text-lg leading-none">{countryCode.flag}</span>
                         <span>{countryCode.code}</span>
                         <ChevronDown className="w-3.5 h-3.5 text-zinc-500" />
                       </button>
 
-                      {/* Dropdown Menu */}
                       {showCountryDropdown && (
-                        <div className="absolute top-full left-0 mt-1 w-52 bg-white border border-zinc-200 rounded-2xl shadow-xl z-50 py-2 max-h-52 overflow-y-auto">
+                        <div className="absolute top-full left-0 mt-1 w-52 bg-white border border-[var(--kads-border)] rounded-[var(--kads-radius-md)] shadow-[var(--kads-shadow-lg)] z-50 py-2 max-h-52 overflow-y-auto" role="listbox">
                           {COUNTRY_CODES.map((c) => (
                             <button
                               type="button"
                               key={c.code + c.country}
+                              role="option"
+                              aria-selected={countryCode.code === c.code}
                               onClick={() => {
                                 setCountryCode(c);
                                 setShowCountryDropdown(false);
                               }}
-                              className="w-full px-4 py-2 text-left text-xs font-semibold hover:bg-purple-50 hover:text-[#8b5cf6] flex items-center justify-between"
+                              className="w-full px-4 py-2 text-left text-xs font-semibold hover:bg-[var(--kads-purple-light)] hover:text-[var(--kads-purple)] flex items-center justify-between"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="text-lg">{c.flag}</span>
@@ -187,30 +229,30 @@ export default function QuickContactFormSection() {
                         </div>
                       )}
 
-                      {/* Phone Input */}
                       <input
+                        id="contact-phone"
                         type="tel"
-                        required
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="(555) 000-0000"
-                        className="w-full px-4 py-3.5 rounded-r-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                        className="w-full px-4 py-3.5 rounded-r-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
                       />
                     </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
-                      Project Goals / Message *
+                    <label htmlFor="contact-message" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      Project Details *
                     </label>
                     <textarea
+                      id="contact-message"
                       required
-                      rows={3}
+                      rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Briefly describe your website, app, SEO, or design project..."
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                      placeholder="Tell us about your project goals, timeline, and any specific requirements..."
+                      className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all resize-none"
                     />
                   </div>
 
@@ -218,10 +260,10 @@ export default function QuickContactFormSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-[7px] bg-[#8b5cf6] hover:bg-[#6d28d9] text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xl disabled:opacity-50 hover:scale-[1.01]"
+                    className="w-full py-4 rounded-[var(--kads-radius-sm)] bg-[var(--kads-purple)] hover:bg-[var(--kads-purple-hover)] text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-[var(--kads-shadow-purple)] disabled:opacity-50 hover:shadow-[0_15px_30px_-5px_rgba(139,92,246,0.45)]"
                   >
-                    <Send className="w-4 h-4 text-white" />
-                    <span>{isSubmitting ? "Sending Message..." : "Send Message"}</span>
+                    <Send className="w-4 h-4" />
+                    <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                   </button>
                 </form>
               )}
