@@ -95,7 +95,7 @@ export default function Header() {
                     <motion.div
                       layoutId="navPill"
                       className={`absolute inset-0 rounded-[var(--kads-radius-sm)] -z-10 shadow-xs ${
-                        isDarkHeader ? "bg-white" : "bg-[var(--kads-purple)]"
+                        isDarkHeader ? "bg-white" : "bg-black"
                       }`}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -110,7 +110,11 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               href="/contact"
-              className="relative inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[var(--kads-purple)] hover:bg-[var(--kads-purple-hover)] transition-all duration-200 rounded-[var(--kads-radius-sm)] shadow-[var(--kads-shadow-purple)] active:scale-95"
+              className={`relative inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 rounded-[var(--kads-radius-sm)] active:scale-95 ${
+                isDarkHeader
+                  ? "bg-white text-black hover:bg-zinc-200 border border-white"
+                  : "bg-black text-white hover:bg-zinc-800 border border-black"
+              }`}
             >
               <span>Start a Project</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -172,7 +176,7 @@ export default function Header() {
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className={`text-2xl font-extrabold flex items-center justify-between py-3 border-b border-zinc-100 ${
-                        pathname === item.href ? "text-[var(--kads-purple)]" : "text-zinc-700 hover:text-black"
+                        pathname === item.href ? "text-black" : "text-zinc-600 hover:text-black"
                       }`}
                       aria-current={pathname === item.href ? "page" : undefined}
                     >
@@ -187,7 +191,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-4 bg-[var(--kads-purple)] text-white text-center font-extrabold text-base rounded-[var(--kads-radius-md)] flex items-center justify-center gap-2 shadow-[var(--kads-shadow-purple)]"
+                  className="w-full py-4 bg-black text-white text-center font-extrabold text-base rounded-[var(--kads-radius-md)] flex items-center justify-center gap-2 border border-black hover:bg-zinc-800 transition-colors"
                 >
                   <span>Start a Project</span>
                   <ArrowRight className="w-4 h-4" />

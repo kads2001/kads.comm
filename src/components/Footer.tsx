@@ -19,7 +19,7 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center gap-3 pt-1">
-              <span className="w-2.5 h-2.5 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">
                 Accepting New Projects
               </span>
@@ -33,32 +33,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm font-medium text-zinc-300">
               <li>
-                <Link href="/services/web-development" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/services/web-development" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Web Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/wordpress-cms" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/services/wordpress-cms" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   WordPress &amp; E-Commerce
                 </Link>
               </li>
               <li>
-                <Link href="/services/seo-optimization" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/services/seo-optimization" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Technical SEO
                 </Link>
               </li>
               <li>
-                <Link href="/services/mobile-app-development" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/services/mobile-app-development" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Mobile App Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/social-media-design" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/services/social-media-design" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Social Media &amp; Video
                 </Link>
               </li>
               <li>
-                <Link href="/services/graphic-design-branding" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/services/graphic-design-branding" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Branding &amp; Design
                 </Link>
               </li>
@@ -72,22 +72,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm font-medium text-zinc-300">
               <li>
-                <Link href="/work" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/work" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Selected Work
                 </Link>
               </li>
               <li>
-                <Link href="/process" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/process" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Our Process
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/about" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   About KADS
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[var(--kads-purple)] transition-colors">
+                <Link href="/contact" className="hover:text-white transition-colors hover:underline underline-offset-4">
                   Contact Us
                 </Link>
               </li>
@@ -102,13 +102,13 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-zinc-300 font-medium">
               <a
                 href="mailto:hello@kads.com"
-                className="flex items-center gap-2.5 hover:text-[var(--kads-purple)] transition-colors"
+                className="flex items-center gap-2.5 hover:text-white transition-colors group"
               >
-                <Mail className="w-4 h-4 text-[var(--kads-purple)]" />
+                <Mail className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                 <span>hello@kads.com</span>
               </a>
-              <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[var(--kads-purple)]" />
+              <div className="flex items-center gap-2.5 text-zinc-300">
+                <MapPin className="w-4 h-4 text-zinc-400" />
                 <span>Remote-First Studio</span>
               </div>
             </div>

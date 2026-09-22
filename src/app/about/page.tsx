@@ -11,7 +11,7 @@ import QuickContactFormSection from "@/components/QuickContactFormSection";
 
 export default function AboutPage() {
   return (
-    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-[#8b5cf6] selection:text-white font-sans">
+    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-black selection:text-white font-sans">
       <ScrollProgress />
       <CustomCursor />
       <Header />
@@ -21,13 +21,13 @@ export default function AboutPage() {
         className="relative pt-40 pb-24 min-h-[50vh] flex flex-col justify-center overflow-hidden bg-cover bg-center text-white"
         style={{ backgroundImage: "url('/images/parallax_agency_bg.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/40" />
 
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/15 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white">
-                <span className="w-2.5 h-2.5 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white font-mono">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 <span>ABOUT KADS.COM · DIGITAL CRAFTSMANSHIP</span>
               </span>
             </div>
@@ -56,8 +56,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-purple-50 border border-purple-200 text-xs font-bold uppercase tracking-wider text-[#8b5cf6]">
-                <span className="w-2 h-2 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-zinc-100 border border-zinc-200 text-xs font-bold uppercase tracking-wider text-black font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
                 <span>OUR CORE PHILOSOPHY</span>
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0d0d11] tracking-tight leading-[1.15]">
@@ -69,32 +69,32 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-8 rounded-3xl bg-white/85 backdrop-blur-xl border border-white/80 shadow-lg">
-                <div className="text-3xl font-extrabold text-[#8b5cf6] mb-1">100%</div>
+              <div className="p-8 rounded-3xl bg-white border border-zinc-200 shadow-md">
+                <div className="text-3xl font-extrabold text-black mb-1 font-mono">100%</div>
                 <div className="font-bold text-sm text-[#0d0d11] mb-2">In-House Production</div>
                 <div className="text-xs text-zinc-600 leading-relaxed">
                   Zero outsourcing. Every line of code, design token, and video render is crafted internally.
                 </div>
               </div>
 
-              <div className="p-8 rounded-3xl bg-white/85 backdrop-blur-xl border border-white/80 shadow-lg">
-                <div className="text-3xl font-extrabold text-[#8b5cf6] mb-1">100/100</div>
+              <div className="p-8 rounded-3xl bg-white border border-zinc-200 shadow-md">
+                <div className="text-3xl font-extrabold text-black mb-1 font-mono">100/100</div>
                 <div className="font-bold text-sm text-[#0d0d11] mb-2">Lighthouse Standard</div>
                 <div className="text-xs text-zinc-600 leading-relaxed">
                   Sub-second LCP and perfect Core Web Vitals benchmarked on real devices.
                 </div>
               </div>
 
-              <div className="p-8 rounded-3xl bg-white/85 backdrop-blur-xl border border-white/80 shadow-lg">
-                <div className="text-3xl font-extrabold text-[#8b5cf6] mb-1">Full IP</div>
+              <div className="p-8 rounded-3xl bg-white border border-zinc-200 shadow-md">
+                <div className="text-3xl font-extrabold text-black mb-1 font-mono">Full IP</div>
                 <div className="font-bold text-sm text-[#0d0d11] mb-2">Complete Code Ownership</div>
                 <div className="text-xs text-zinc-600 leading-relaxed">
                   You own 100% of the repository, design assets, and raw creative files forever.
                 </div>
               </div>
 
-              <div className="p-8 rounded-3xl bg-white/85 backdrop-blur-xl border border-white/80 shadow-lg">
-                <div className="text-3xl font-extrabold text-[#8b5cf6] mb-1">30-Day</div>
+              <div className="p-8 rounded-3xl bg-white border border-zinc-200 shadow-md">
+                <div className="text-3xl font-extrabold text-black mb-1 font-mono">30-Day</div>
                 <div className="font-bold text-sm text-[#0d0d11] mb-2">Post-Launch Warranty</div>
                 <div className="text-xs text-zinc-600 leading-relaxed">
                   Comprehensive bug fixes, speed tuning, and SLA technical guarantee.

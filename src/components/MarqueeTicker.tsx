@@ -22,20 +22,16 @@ export default function MarqueeTicker() {
       <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 bg-gradient-to-r from-[var(--kads-dark)] to-transparent z-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-[var(--kads-dark)] to-transparent z-10" />
 
-      <motion.div
-        className="flex space-x-8 sm:space-x-12 whitespace-nowrap items-center w-max"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
-      >
+      <div className="animate-marquee space-x-8 sm:space-x-12 whitespace-nowrap items-center">
         {items.map((item, idx) => (
           <div key={idx} className="flex items-center space-x-8 sm:space-x-12 cursor-default">
             <span className="text-sm sm:text-base font-bold tracking-[0.15em] text-white/80">
               {item}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--kads-purple)]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

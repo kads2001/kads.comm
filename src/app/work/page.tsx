@@ -28,23 +28,23 @@ export default function WorkPage() {
       : PROJECTS_DATA.filter((p) => p.categorySlug === activeFilter);
 
   return (
-    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-[#8b5cf6] selection:text-white font-sans">
+    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-black selection:text-white font-sans">
       <ScrollProgress />
       <CustomCursor />
       <Header />
 
-      {/* HERO BANNER WITH BACKGROUND IMAGE AND DARK OVERLAY */}
+      {/* HERO BANNER WITH BACKGROUND IMAGE AND BALANCED OVERLAY */}
       <section
         className="relative pt-40 pb-24 min-h-[50vh] flex flex-col justify-center overflow-hidden bg-cover bg-center text-white"
         style={{ backgroundImage: "url('/images/parallax_agency_bg.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/40" />
 
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/15 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white">
-                <span className="w-2.5 h-2.5 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white font-mono">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 <span>PORTFOLIO & CASE STUDIES</span>
               </span>
             </div>
@@ -68,10 +68,10 @@ export default function WorkPage() {
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-5 py-2.5 rounded-[7px] text-xs font-bold uppercase tracking-wider transition-all shrink-0 ${
+                className={`px-5 py-2.5 rounded-[7px] text-xs font-bold uppercase tracking-wider transition-all shrink-0 border ${
                   activeFilter === filter.id
-                    ? "bg-[#8b5cf6] text-white shadow-sm"
-                    : "bg-white border border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-100"
+                    ? "bg-black text-white border-black shadow-sm"
+                    : "bg-white border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-100 hover:border-zinc-300"
                 }`}
               >
                 {filter.label}
@@ -81,10 +81,10 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Projects Grid with Full Background Image Cards */}
+      {/* Projects Grid with Dedicated Full-Color Showcase Preview Cards */}
       <section className="py-24 sm:py-32 bg-[#fafafa] text-[#0d0d11] relative">
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 min-[1600px]:gap-12">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project, idx) => (
                 <motion.div
@@ -97,56 +97,57 @@ export default function WorkPage() {
                 >
                   <Link
                     href={`/work/${project.id}`}
-                    className="group relative block rounded-3xl overflow-hidden min-h-[460px] sm:min-h-[520px] shadow-2xl border border-white/20 transition-all hover:scale-[1.01] hover:border-[#8b5cf6] flex flex-col justify-between p-8 text-white bg-zinc-950"
+                    className="group relative block rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 transition-all hover:scale-[1.01] hover:border-white flex flex-col justify-between text-white bg-zinc-950"
                   >
-                    {/* Full-Card Background Image */}
-                    <div className="absolute inset-0 z-0">
+                    {/* Dedicated Full-Color Showcase Header */}
+                    <div className="relative h-64 sm:h-76 min-[1600px]:h-84 w-full overflow-hidden bg-zinc-900 border-b border-white/10">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       />
-                      {/* Dark Vignette Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/40 backdrop-blur-[1px]" />
-                    </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-black/20 pointer-events-none" />
 
-                    {/* Top Layer */}
-                    <div className="relative z-10 flex items-center justify-between">
-                      <span className="px-4 py-1.5 rounded-[7px] bg-[#8b5cf6] text-white text-xs font-bold shadow-md">
-                        {project.category}
-                      </span>
-                      <div className="w-11 h-11 rounded-[7px] bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-md group-hover:bg-[#8b5cf6] group-hover:scale-110 transition-all">
-                        <ArrowUpRight className="w-5 h-5" />
+                      {/* Top Badges */}
+                      <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
+                        <span className="px-4 py-1.5 rounded-[7px] bg-white text-black text-xs font-bold shadow-md uppercase tracking-wider font-mono">
+                          {project.category}
+                        </span>
+                        <div className="w-10 h-10 rounded-[7px] bg-black/70 border border-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-md group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all">
+                          <ArrowUpRight className="w-5 h-5" />
+                        </div>
                       </div>
                     </div>
 
-                    {/* Bottom Layer Over Image */}
-                    <div className="relative z-10 space-y-4 pt-20">
-                      <span className="text-xs font-bold text-purple-300 uppercase tracking-widest block">
-                        {project.index} — CLIENT: {project.client}
-                      </span>
+                    {/* Card Content Body */}
+                    <div className="p-8 min-[1600px]:p-10 flex-1 flex flex-col justify-between space-y-4">
+                      <div className="space-y-4">
+                        <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block font-mono">
+                          {project.index} — CLIENT: {project.client}
+                        </span>
 
-                      <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight group-hover:text-purple-200 transition-colors">
-                        {project.title}
-                      </h2>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight group-hover:text-zinc-200 transition-colors">
+                          {project.title}
+                        </h2>
 
-                      <p className="text-zinc-300 text-sm leading-relaxed max-w-xl line-clamp-2">
-                        {project.summary}
-                      </p>
+                        <p className="text-zinc-400 text-sm leading-relaxed max-w-xl line-clamp-2">
+                          {project.summary}
+                        </p>
 
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {project.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-3 py-1 rounded-lg bg-white/10 border border-white/20 text-xs text-zinc-200 font-semibold backdrop-blur-md"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {project.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="px-3 py-1 rounded-lg bg-white/10 border border-white/20 text-xs text-zinc-200 font-semibold font-mono"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
 
-                      <div className="pt-4 border-t border-white/20 flex items-center justify-between text-xs font-bold text-white">
-                        <span className="text-purple-300">IMPACT: {project.impactMetric}</span>
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-white">
+                        <span className="text-zinc-300 font-mono">IMPACT: {project.impactMetric}</span>
                         <span className="group-hover:translate-x-1 transition-transform flex items-center gap-1.5">
                           Read Case Study →
                         </span>

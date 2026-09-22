@@ -52,29 +52,29 @@ export default function ServicesPage() {
       : SERVICES_DATA.filter((s) => s.category === activeCategory);
 
   return (
-    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-[#8b5cf6] selection:text-white font-sans">
+    <main className="relative min-h-screen bg-white text-black selection:bg-black selection:text-white font-sans">
       <ScrollProgress />
       <CustomCursor />
       <Header />
 
-      {/* HERO BANNER WITH BACKGROUND IMAGE AND DARK OVERLAY */}
+      {/* HERO BANNER WITH BACKGROUND IMAGE AND BALANCED OVERLAY */}
       <section
         className="relative pt-40 pb-24 min-h-[50vh] flex flex-col justify-center overflow-hidden bg-cover bg-center text-white"
         style={{ backgroundImage: "url('/images/parallax_agency_bg.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/40" />
 
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/15 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white">
-                <span className="w-2.5 h-2.5 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/10 border border-white/20 text-xs font-mono uppercase tracking-wider backdrop-blur-md text-white">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 <span>SYSTEMATIC MULTI-DISCIPLINE CAPABILITIES</span>
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
-              Full-Spectrum Engineering, SEO, & Creative Design.
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.08] mb-6">
+              Full-Spectrum Engineering, <span className="font-serif italic font-normal text-zinc-300">SEO</span>, & Creative Direction.
             </h1>
 
             <p className="text-lg sm:text-2xl text-zinc-300 font-normal leading-relaxed max-w-3xl">
@@ -85,17 +85,17 @@ export default function ServicesPage() {
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-6 bg-[#fbfbfa] border-b border-zinc-200 sticky top-16 z-30 backdrop-blur-md bg-[#fbfbfa]/90">
+      <section className="py-6 bg-white border-b border-zinc-200 sticky top-16 z-30 backdrop-blur-md bg-white/90">
         <div className="w-[90%] max-w-[1500px] mx-auto">
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-[7px] text-xs font-bold uppercase tracking-wider transition-all shrink-0 ${
+                className={`px-5 py-2.5 rounded-[7px] text-xs font-mono uppercase tracking-wider transition-all shrink-0 ${
                   activeCategory === cat.id
-                    ? "bg-[#8b5cf6] text-white shadow-sm"
-                    : "bg-white border border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-100"
+                    ? "bg-black text-white border border-black shadow-sm"
+                    : "bg-white border border-zinc-200 text-zinc-600 hover:text-black hover:border-black"
                 }`}
               >
                 {cat.label}
@@ -105,10 +105,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid with Full Background Image Cards */}
-      <section className="py-24 sm:py-32 bg-white text-[#0d0d11] relative">
+      {/* Services Grid with Full-Color Image Showcase Cards */}
+      <section className="py-24 sm:py-32 bg-white text-black relative">
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-[1600px]:gap-10">
             <AnimatePresence mode="popLayout">
               {filtered.map((service, idx) => {
                 const serviceImg = SERVICE_IMAGES[service.slug] || "/images/hero_showcase.jpg";
@@ -123,54 +123,55 @@ export default function ServicesPage() {
                   >
                     <Link
                       href={`/services/${service.slug}`}
-                      className="group relative block rounded-3xl overflow-hidden min-h-[460px] shadow-2xl border border-white/20 transition-all hover:scale-[1.01] hover:border-[#8b5cf6] flex flex-col justify-between p-8 text-white bg-zinc-950"
+                      className="group relative block rounded-3xl overflow-hidden shadow-xl border border-zinc-800 transition-all duration-300 hover:border-white hover:-translate-y-1 flex flex-col justify-between text-white bg-zinc-950"
                     >
-                      {/* Full-Card Background Image */}
-                      <div className="absolute inset-0 z-0">
+                      {/* Dedicated Full-Color Media Header */}
+                      <div className="relative h-56 min-[1600px]:h-64 w-full overflow-hidden bg-zinc-900 border-b border-white/10">
                         <img
                           src={serviceImg}
                           alt={service.title}
                           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                         />
-                        {/* Dark Vignette Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40 backdrop-blur-[1px]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-black/20 pointer-events-none" />
+
+                        {/* Card Top Badges */}
+                        <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
+                          <span className="px-3 py-1 rounded-[7px] bg-white text-black text-xs font-mono uppercase tracking-wider font-semibold">
+                            {service.badge}
+                          </span>
+                          <span className="text-xs font-mono px-3 py-1 rounded-[7px] bg-black/70 border border-white/20 text-zinc-300 backdrop-blur-md">
+                            [ 0{idx + 1} ]
+                          </span>
+                        </div>
                       </div>
 
-                      {/* Card Top */}
-                      <div className="relative z-10 flex items-center justify-between">
-                        <span className="px-4 py-1.5 rounded-[7px] bg-[#8b5cf6] text-white text-xs font-bold shadow-md">
-                          {service.badge}
-                        </span>
-                        <span className="text-xs font-bold px-3 py-1 rounded-[7px] bg-white/20 border border-white/30 text-white shadow-xs backdrop-blur-md">
-                          [ 0{idx + 1} ]
-                        </span>
-                      </div>
+                      {/* Card Bottom Body */}
+                      <div className="p-8 min-[1600px]:p-10 flex-1 flex flex-col justify-between space-y-4">
+                        <div className="space-y-4">
+                          <h2 className="text-2xl font-bold text-white group-hover:text-zinc-100 transition-colors">
+                            {service.title}
+                          </h2>
 
-                      {/* Card Bottom Over the Image */}
-                      <div className="relative z-10 space-y-4 pt-16">
-                        <h2 className="text-2xl font-extrabold text-white group-hover:text-purple-200 transition-colors">
-                          {service.title}
-                        </h2>
+                          <p className="text-zinc-400 text-sm leading-relaxed line-clamp-2">
+                            {service.shortDesc}
+                          </p>
 
-                        <p className="text-zinc-300 text-sm leading-relaxed line-clamp-2">
-                          {service.shortDesc}
-                        </p>
-
-                        <div className="space-y-2 pt-2 border-t border-white/20">
-                          {service.deliverables.slice(0, 3).map((deliv, i) => (
-                            <div key={i} className="flex items-start gap-2 text-xs text-zinc-200 font-medium">
-                              <CheckCircle2 className="w-4 h-4 text-purple-300 shrink-0 mt-0.5" />
-                              <span>{deliv}</span>
-                            </div>
-                          ))}
+                          <div className="space-y-2 pt-2 border-t border-zinc-800">
+                            {service.deliverables.slice(0, 3).map((deliv, i) => (
+                              <div key={i} className="flex items-start gap-2 text-xs text-zinc-300 font-medium">
+                                <CheckCircle2 className="w-4 h-4 text-white shrink-0 mt-0.5" />
+                                <span>{deliv}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
 
-                        <div className="pt-4 border-t border-white/20 flex items-center justify-between text-xs">
+                        <div className="pt-4 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                           <div>
-                            <span className="text-zinc-400">Starts at </span>
+                            <span className="text-zinc-400 uppercase">Starts at </span>
                             <strong className="text-white font-bold">{service.startingPrice}</strong>
                           </div>
-                          <span className="inline-flex items-center gap-1.5 font-bold text-white group-hover:translate-x-1 transition-transform">
+                          <span className="inline-flex items-center gap-1.5 font-bold text-white group-hover:translate-x-1 transition-transform uppercase">
                             <span>Explore Scope</span>
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>

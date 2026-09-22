@@ -39,7 +39,7 @@ export default function ServicesSection() {
           {/* Left Column */}
           <div className="lg:col-span-7 space-y-4">
             <span className="kads-pill">
-              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               <span>OUR SERVICES</span>
             </span>
             <h2 className="kads-heading">
@@ -63,10 +63,10 @@ export default function ServicesSection() {
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id)}
-                className={`px-4 py-2 rounded-[var(--kads-radius-sm)] text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`px-4 py-2 rounded-[var(--kads-radius-sm)] text-xs font-bold uppercase tracking-wider transition-all border ${
                   activeCategory === tab.id
-                    ? "bg-[var(--kads-purple)] text-white shadow-md"
-                    : "bg-zinc-100 border border-[var(--kads-border)] text-zinc-600 hover:text-black hover:bg-zinc-200"
+                    ? "bg-black text-white border-black shadow-sm"
+                    : "bg-zinc-100 border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-200 hover:border-zinc-300"
                 }`}
               >
                 {tab.label}
@@ -76,7 +76,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-[1600px]:gap-8">
           {filtered.map((service, idx) => {
             const serviceImg = SERVICE_IMAGES[service.slug] || "/images/hero_showcase.jpg";
             return (
@@ -90,10 +90,10 @@ export default function ServicesSection() {
               >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group relative block rounded-[var(--kads-radius-xl)] overflow-hidden min-h-[440px] shadow-[var(--kads-shadow-md)] hover:shadow-[var(--kads-shadow-lg)] border border-white/15 transition-all hover:border-[var(--kads-purple)] flex flex-col justify-between p-7 text-white bg-zinc-950"
+                  className="group relative block rounded-[var(--kads-radius-xl)] overflow-hidden shadow-[var(--kads-shadow-md)] hover:shadow-[var(--kads-shadow-lg)] border border-white/15 hover:border-white transition-all duration-300 flex flex-col justify-between text-white bg-zinc-950"
                 >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 z-0">
+                  {/* Dedicated Full-Color Media Showcase Header */}
+                  <div className="relative h-52 sm:h-56 min-[1600px]:h-60 w-full overflow-hidden bg-zinc-900 border-b border-white/10">
                     <Image
                       src={serviceImg}
                       alt={service.title}
@@ -101,39 +101,41 @@ export default function ServicesSection() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/80 to-black/40" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-black/20 pointer-events-none" />
+
+                    {/* Card Top Badges */}
+                    <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-between pointer-events-none">
+                      <span className="px-3 py-1 rounded-[var(--kads-radius-sm)] bg-white text-black text-xs font-bold shadow-md uppercase tracking-wider font-mono">
+                        {service.badge}
+                      </span>
+                      <span className="text-xs font-bold px-2.5 py-1 rounded-[var(--kads-radius-sm)] bg-black/70 border border-white/25 text-white shadow-xs backdrop-blur-md font-mono">
+                        0{idx + 1}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Card Top */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <span className="px-3.5 py-1.5 rounded-[var(--kads-radius-sm)] bg-[var(--kads-purple)] text-white text-xs font-bold shadow-md">
-                      {service.badge}
-                    </span>
-                    <span className="text-xs font-bold px-3 py-1 rounded-[var(--kads-radius-sm)] bg-white/15 border border-white/25 text-white shadow-xs backdrop-blur-md">
-                      0{idx + 1}
-                    </span>
-                  </div>
+                  {/* Card Content Body */}
+                  <div className="p-7 min-[1600px]:p-8 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-extrabold text-white group-hover:text-zinc-200 transition-colors">
+                        {service.title}
+                      </h3>
 
-                  {/* Card Bottom */}
-                  <div className="relative z-10 space-y-3 pt-12">
-                    <h3 className="text-xl font-extrabold text-white group-hover:text-purple-200 transition-colors">
-                      {service.title}
-                    </h3>
+                      <p className="text-zinc-400 text-sm leading-relaxed line-clamp-2">
+                        {service.shortDesc}
+                      </p>
 
-                    <p className="text-zinc-300 text-sm leading-relaxed line-clamp-2">
-                      {service.shortDesc}
-                    </p>
-
-                    <div className="space-y-2 pt-2 border-t border-white/15">
-                      {service.deliverables.slice(0, 3).map((deliv, i) => (
-                        <div key={i} className="flex items-start gap-2 text-xs text-zinc-200 font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-purple-300 shrink-0 mt-0.5" />
-                          <span>{deliv}</span>
-                        </div>
-                      ))}
+                      <div className="space-y-2 pt-2 border-t border-white/10">
+                        {service.deliverables.slice(0, 3).map((deliv, i) => (
+                          <div key={i} className="flex items-start gap-2 text-xs text-zinc-300 font-medium">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
+                            <span>{deliv}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
-                    <div className="pt-3 border-t border-white/15 flex items-center justify-between text-xs">
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                       <div>
                         <span className="text-zinc-400">From </span>
                         <strong className="text-white font-bold">{service.startingPrice}</strong>

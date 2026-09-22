@@ -67,16 +67,16 @@ export default function InteractiveEstimator() {
   const estimatedDays = Math.max(7, Math.round(rawDays * 0.7 * (scopeMultiplier > 1 ? 1.2 : 1.0)));
 
   return (
-    <section id="estimator" className="relative py-24 sm:py-32 bg-[#f7f7f9] text-[#0d0d11] border-b border-zinc-200">
+    <section id="estimator" className="relative py-24 sm:py-32 bg-white text-black border-b border-zinc-200">
       <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-purple-50 border border-purple-200 text-xs font-bold uppercase tracking-wider text-[#8b5cf6]">
-              <span className="w-2 h-2 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[7px] bg-black text-white text-xs font-mono uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               <span>TRANSPARENT PROJECT SCOPING</span>
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0d0d11] tracking-tight leading-[1.15]">
-              Interactive Scope & Timeline Estimator.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight leading-[1.15]">
+              Interactive Scope & <span className="font-serif italic font-normal text-zinc-600">Timeline Estimator</span>.
             </h2>
             <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">
               Select your required disciplines and scope tier to calculate an instant estimated investment and delivery timeline.
@@ -88,11 +88,11 @@ export default function InteractiveEstimator() {
           {/* Left Column: Service & Scope Selection */}
           <div className="lg:col-span-7 space-y-8">
             {/* Step 1: Services Selection */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-zinc-200 shadow-sm">
-              <span className="text-xs uppercase font-bold tracking-wider text-zinc-500 block mb-2">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-zinc-200 shadow-xs">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 block mb-2">
                 STEP 01 · SELECT REQUIRED DISCIPLINES
               </span>
-              <h3 className="text-xl font-bold text-[#0d0d11] mb-6">Which services do you require?</h3>
+              <h3 className="text-xl font-bold text-black mb-6">Which services do you require?</h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {SERVICE_OPTIONS.map((opt) => {
@@ -101,17 +101,17 @@ export default function InteractiveEstimator() {
                     <button
                       key={opt.id}
                       onClick={() => toggleService(opt.id)}
-                      className={`p-4 rounded-2xl border text-left transition-all flex items-start justify-between gap-3 backdrop-blur-sm ${
+                      className={`p-4 rounded-2xl border text-left transition-all flex items-start justify-between gap-3 ${
                         isSelected
-                          ? "bg-[#8b5cf6] text-white border-[#8b5cf6] shadow-md"
-                          : "bg-white/80 border-zinc-200 text-zinc-700 hover:border-zinc-400 hover:bg-white"
+                          ? "bg-black text-white border-black shadow-sm"
+                          : "bg-zinc-50 border-zinc-200 text-zinc-800 hover:border-black hover:bg-white"
                       }`}
                     >
                       <div>
-                        <div className="text-xs font-semibold opacity-80 mb-1">{opt.category}</div>
+                        <div className="text-xs font-mono uppercase tracking-wider opacity-60 mb-1">{opt.category}</div>
                         <div className="text-sm font-bold">{opt.name}</div>
                       </div>
-                      <span className="text-xs font-bold shrink-0 mt-0.5">
+                      <span className="text-xs font-mono font-bold shrink-0 mt-0.5">
                         ${opt.basePrice.toLocaleString()}
                       </span>
                     </button>
@@ -121,11 +121,11 @@ export default function InteractiveEstimator() {
             </div>
 
             {/* Step 2: Scope Tier */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-zinc-200 shadow-sm">
-              <span className="text-xs uppercase font-bold tracking-wider text-zinc-500 block mb-2">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-zinc-200 shadow-xs">
+              <span className="text-xs font-mono uppercase tracking-wider text-zinc-400 block mb-2">
                 STEP 02 · SELECT SCOPE LEVEL
               </span>
-              <h3 className="text-xl font-bold text-[#0d0d11] mb-6">Choose project scale & depth</h3>
+              <h3 className="text-xl font-bold text-black mb-6">Choose project scale & depth</h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {SCOPE_TIERS.map((tier) => {
@@ -134,14 +134,14 @@ export default function InteractiveEstimator() {
                     <button
                       key={tier.id}
                       onClick={() => setSelectedScope(tier.id)}
-                      className={`p-5 rounded-2xl border text-left transition-all backdrop-blur-sm ${
+                      className={`p-5 rounded-2xl border text-left transition-all ${
                         isSelected
-                          ? "bg-[#8b5cf6] text-white border-[#8b5cf6] shadow-md"
-                          : "bg-white/80 border-zinc-200 text-zinc-700 hover:border-zinc-400 hover:bg-white"
+                          ? "bg-black text-white border-black shadow-sm"
+                          : "bg-zinc-50 border-zinc-200 text-zinc-800 hover:border-black hover:bg-white"
                       }`}
                     >
                       <div className="text-sm font-bold mb-1">{tier.name}</div>
-                      <div className="text-xs opacity-80 leading-relaxed">{tier.desc}</div>
+                      <div className="text-xs opacity-70 leading-relaxed">{tier.desc}</div>
                     </button>
                   );
                 })}
@@ -151,33 +151,33 @@ export default function InteractiveEstimator() {
 
           {/* Right Column: Live Calculated Breakdown */}
           <div className="lg:col-span-5 sticky top-24">
-            <div className="p-8 sm:p-10 rounded-3xl bg-zinc-950/95 backdrop-blur-xl border border-zinc-800 text-white shadow-2xl space-y-6">
+            <div className="p-8 sm:p-10 rounded-3xl bg-black border border-zinc-800 text-white shadow-2xl space-y-6">
               <div className="flex items-center justify-between pb-6 border-b border-zinc-800">
-                <span className="text-xs uppercase font-bold text-zinc-400">ESTIMATED INVESTMENT</span>
-                <span className="px-3 py-1 rounded-[7px] bg-[#8b5cf6] text-xs font-bold text-white">
+                <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">ESTIMATED INVESTMENT</span>
+                <span className="px-3 py-1 rounded-[7px] bg-white text-black text-xs font-mono font-bold uppercase">
                   {selectedServices.length} Selected
                 </span>
               </div>
 
               <div>
-                <div className="text-4xl sm:text-5xl font-extrabold text-white mb-2">
+                <div className="text-4xl sm:text-5xl font-mono font-light text-white mb-2">
                   ${estimatedPrice.toLocaleString()}{" "}
-                  <span className="text-sm font-normal text-zinc-400">USD</span>
+                  <span className="text-sm font-normal text-zinc-400 font-sans">USD</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-zinc-300">
-                  <Clock className="w-4 h-4 text-[#8b5cf6]" />
-                  <span>Estimated Delivery: <strong>~{estimatedDays} Business Days</strong></span>
+                <div className="flex items-center gap-2 text-xs text-zinc-300 font-mono">
+                  <Clock className="w-4 h-4 text-white" />
+                  <span>Estimated Delivery: <strong className="text-white">~{estimatedDays} Business Days</strong></span>
                 </div>
               </div>
 
               {/* Selected List */}
-              <div className="space-y-2 pt-4 border-t border-zinc-800 text-xs text-zinc-300">
+              <div className="space-y-2 pt-4 border-t border-zinc-800 text-xs text-zinc-300 font-mono">
                 {selectedServices.map((id) => {
                   const s = SERVICE_OPTIONS.find((item) => item.id === id);
                   return (
                     <div key={id} className="flex justify-between items-center py-1">
                       <span>• {s?.name}</span>
-                      <span className="text-[#8b5cf6] font-bold">${s?.basePrice}</span>
+                      <span className="text-white font-bold">${s?.basePrice}</span>
                     </div>
                   );
                 })}
@@ -186,15 +186,15 @@ export default function InteractiveEstimator() {
               {/* Included Guarantees */}
               <div className="pt-4 border-t border-zinc-800 space-y-2 text-xs text-zinc-300">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#8b5cf6] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
                   <span>100% Commercial Code & Asset Ownership</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#8b5cf6] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
                   <span>100/100 Lighthouse Performance SLA</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#8b5cf6] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
                   <span>30-Day Post-Launch Technical Warranty</span>
                 </div>
               </div>
@@ -202,10 +202,10 @@ export default function InteractiveEstimator() {
               <div className="pt-4">
                 <Link
                   href={`/contact?services=${selectedServices.join(",")}&scope=${selectedScope}&estimate=${estimatedPrice}`}
-                  className="w-full py-4 rounded-[7px] bg-[#8b5cf6] text-white font-bold text-sm text-center flex items-center justify-center gap-2 hover:bg-[#6d28d9] transition-all shadow-xl hover:scale-105"
+                  className="w-full py-4 rounded-[7px] bg-white text-black font-mono font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 hover:bg-zinc-200 transition-all"
                 >
-                  <span>Lock in This Scope & Get Proposal</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
+                  <span>Lock in Scope & Get Proposal</span>
+                  <ArrowRight className="w-4 h-4 text-black" />
                 </Link>
               </div>
             </div>

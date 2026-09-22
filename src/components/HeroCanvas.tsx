@@ -52,7 +52,7 @@ export default function HeroCanvas() {
     // Initialize particles
     const particleCount = Math.min(Math.floor((width * height) / 12000), 75);
     const particles: Particle[] = [];
-    const colors = ["#6366f1", "#06b6d4", "#818cf8", "#38bdf8", "#a855f7"];
+    const colors = ["#000000", "#27272a", "#52525b", "#71717a", "#a1a1aa"];
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -74,7 +74,7 @@ export default function HeroCanvas() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle grid lines
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.02)";
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.03)";
       ctx.lineWidth = 1;
       const gridSize = 50;
       for (let x = 0; x < width; x += gridSize) {
@@ -123,7 +123,7 @@ export default function HeroCanvas() {
           const distance = Math.hypot(p.x - p2.x, p.y - p2.y);
           if (distance < 110) {
             ctx.strokeStyle = p.color;
-            ctx.globalAlpha = (1 - distance / 110) * 0.25;
+            ctx.globalAlpha = (1 - distance / 110) * 0.2;
             ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
@@ -136,9 +136,9 @@ export default function HeroCanvas() {
       // Draw cursor ambient glow target node
       ctx.globalAlpha = 0.4;
       const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 160);
-      gradient.addColorStop(0, "rgba(99, 102, 241, 0.25)");
-      gradient.addColorStop(0.5, "rgba(6, 182, 212, 0.1)");
-      gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+      gradient.addColorStop(0, "rgba(0, 0, 0, 0.08)");
+      gradient.addColorStop(0.5, "rgba(0, 0, 0, 0.03)");
+      gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
       ctx.fillStyle = gradient;
       ctx.beginPath();
       ctx.arc(mouse.x, mouse.y, 160, 0, Math.PI * 2);

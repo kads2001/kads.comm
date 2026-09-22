@@ -23,12 +23,12 @@ export default function CreativeShowcase() {
       <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-purple-50 border border-purple-200 text-xs font-bold uppercase tracking-wider text-[#8b5cf6]">
-              <span className="w-2 h-2 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-[7px] bg-black text-white text-xs font-mono uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
               <span>VIRAL CONTENT & BRAND SYSTEMS</span>
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0d0d11] tracking-tight leading-[1.15]">
-              Magnetic Creatives Engineered to Convert.
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight leading-[1.15]">
+              Magnetic Creatives <span className="font-serif italic font-normal text-zinc-600">Engineered to Convert</span>.
             </h2>
             <p className="text-base sm:text-lg text-zinc-600 font-normal leading-relaxed">
               We combine high-retention motion storytelling, swipeable carousels, and vector brand systems that capture attention instantly.
@@ -49,10 +49,10 @@ export default function CreativeShowcase() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-[7px] text-xs font-bold uppercase tracking-wider transition-all shrink-0 ${
+                className={`flex items-center gap-2 px-6 py-3 rounded-[7px] text-xs font-mono uppercase tracking-wider transition-all shrink-0 ${
                   isActive
-                    ? "bg-[#0d0d11] text-white shadow-md"
-                    : "bg-zinc-100 border border-zinc-200 text-zinc-600 hover:text-black hover:bg-zinc-200"
+                    ? "bg-black text-white border border-black shadow-sm"
+                    : "bg-zinc-50 border border-zinc-200 text-zinc-600 hover:text-black hover:border-black"
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -84,10 +84,10 @@ export default function CreativeShowcase() {
 
               {/* Right Content */}
               <div className="lg:col-span-6 space-y-6">
-                <span className="text-xs uppercase font-bold tracking-wider text-zinc-500">
+                <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   DISCIPLINE 05 · SOCIAL MEDIA CREATIVES
                 </span>
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-[#0d0d11] leading-tight">
+                <h3 className="text-2xl sm:text-4xl font-bold text-black leading-tight">
                   High-CTR Educational Carousels & Paid Ad Formats
                 </h3>
                 <p className="text-zinc-600 text-base leading-relaxed">
@@ -95,18 +95,18 @@ export default function CreativeShowcase() {
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-200">
-                  <div className="p-4 rounded-2xl bg-[#fbfbfa] border border-zinc-200">
-                    <div className="text-2xl font-extrabold text-[#0d0d11]">4.2x</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">Average Meta Ad ROAS</div>
+                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                    <div className="text-3xl font-mono font-light text-black">4.2x</div>
+                    <div className="text-xs font-mono uppercase text-zinc-500 mt-1">Average Meta Ad ROAS</div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#fbfbfa] border border-zinc-200">
-                    <div className="text-2xl font-extrabold text-[#0d0d11]">3.8x</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">Organic Save & Share Rate</div>
+                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                    <div className="text-3xl font-mono font-light text-black">3.8x</div>
+                    <div className="text-xs font-mono uppercase text-zinc-500 mt-1">Organic Save & Share Rate</div>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <Link href="/services/social-media-design" className="evoco-btn-primary">
+                  <Link href="/services/social-media-design" className="kads-btn-primary">
                     <span>View Social Media Packages</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -135,10 +135,10 @@ export default function CreativeShowcase() {
 
               {/* Right Content */}
               <div className="lg:col-span-6 space-y-6">
-                <span className="text-xs uppercase font-bold tracking-wider text-zinc-500">
+                <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   DISCIPLINE 06 · VIDEO PRODUCTION & MOTION
                 </span>
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-[#0d0d11] leading-tight">
+                <h3 className="text-2xl sm:text-4xl font-bold text-black leading-tight">
                   Viral Reels, TikToks & 3D Product Motion
                 </h3>
                 <p className="text-zinc-600 text-base leading-relaxed">
@@ -146,18 +146,18 @@ export default function CreativeShowcase() {
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-200">
-                  <div className="p-4 rounded-2xl bg-[#fbfbfa] border border-zinc-200">
-                    <div className="text-2xl font-extrabold text-[#0d0d11]">84%</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">3-Second Hook Retention</div>
+                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                    <div className="text-3xl font-mono font-light text-black">84%</div>
+                    <div className="text-xs font-mono uppercase text-zinc-500 mt-1">3-Second Hook Retention</div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#fbfbfa] border border-zinc-200">
-                    <div className="text-2xl font-extrabold text-[#0d0d11]">4K / 60fps</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">Master Quality Export</div>
+                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                    <div className="text-3xl font-mono font-light text-black">4K / 60fps</div>
+                    <div className="text-xs font-mono uppercase text-zinc-500 mt-1">Master Quality Export</div>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <Link href="/services/video-production-motion" className="evoco-btn-primary">
+                  <Link href="/services/video-production-motion" className="kads-btn-primary">
                     <span>Explore Video Production Scope</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
@@ -186,10 +186,10 @@ export default function CreativeShowcase() {
 
               {/* Right Content */}
               <div className="lg:col-span-6 space-y-6">
-                <span className="text-xs uppercase font-bold tracking-wider text-zinc-500">
+                <span className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   DISCIPLINE 07 · GRAPHIC DESIGN & BRAND IDENTITY
                 </span>
-                <h3 className="text-2xl sm:text-4xl font-extrabold text-[#0d0d11] leading-tight">
+                <h3 className="text-2xl sm:text-4xl font-bold text-black leading-tight">
                   Timeless Logos, Design Tokens & Brand Style Guides
                 </h3>
                 <p className="text-zinc-600 text-base leading-relaxed">
@@ -197,18 +197,18 @@ export default function CreativeShowcase() {
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-zinc-200">
-                  <div className="p-4 rounded-2xl bg-[#fbfbfa] border border-zinc-200">
-                    <div className="text-2xl font-extrabold text-[#0d0d11]">100% Vector</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">Scalable Asset Master Suite</div>
+                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                    <div className="text-3xl font-mono font-light text-black">100%</div>
+                    <div className="text-xs font-mono uppercase text-zinc-500 mt-1">Vector Scalable Asset Suite</div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-[#fbfbfa] border border-zinc-200">
-                    <div className="text-2xl font-extrabold text-[#0d0d11]">Figma Tokens</div>
-                    <div className="text-xs text-zinc-600 mt-0.5">Developer-Ready Style Guide</div>
+                  <div className="p-4 rounded-xl bg-zinc-50 border border-zinc-200">
+                    <div className="text-3xl font-mono font-light text-black">Figma</div>
+                    <div className="text-xs font-mono uppercase text-zinc-500 mt-1">Developer Tokens Included</div>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <Link href="/services/graphic-design-branding" className="evoco-btn-primary">
+                  <Link href="/services/graphic-design-branding" className="kads-btn-primary">
                     <span>View Brand Identity Deliverables</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>

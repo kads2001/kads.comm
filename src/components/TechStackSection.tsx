@@ -77,7 +77,7 @@ export default function TechStackSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
             <span className="kads-pill">
-              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               <span>TECHNOLOGY</span>
             </span>
             <h2 className="kads-heading">
@@ -89,7 +89,7 @@ export default function TechStackSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 min-[1600px]:gap-8">
           {STACK_CATEGORIES.map((cat, idx) => {
             const Icon = cat.icon;
             return (
@@ -99,11 +99,11 @@ export default function TechStackSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="kads-card p-7"
+                className="kads-card p-7 min-[1600px]:p-9"
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple)] text-white flex items-center justify-center">
-                    <Icon className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-[var(--kads-radius-md)] bg-black text-white flex items-center justify-center">
+                    <Icon className="w-4 h-4" />
                   </div>
                   <h3 className="text-base font-bold text-[var(--kads-text)]">{cat.category}</h3>
                 </div>

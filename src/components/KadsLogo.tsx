@@ -32,7 +32,7 @@ export default function KadsLogo({
       <img
         src={logoSrc}
         alt="KADS.COM - Ideas • Design • Solutions"
-        className={`${sizeMap[size]} object-contain drop-shadow-[0_2px_8px_rgba(139, 92, 246,0.25)]`}
+        className={`${sizeMap[size]} object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.12)]`}
       />
     </div>
   );

@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} scroll-smooth`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${plusJakarta.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
@@ -91,7 +91,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans bg-[var(--kads-bg)] text-[var(--kads-text)] antialiased selection:bg-[var(--kads-purple)] selection:text-white min-h-screen flex flex-col">
+      <body className="font-sans bg-[var(--kads-bg)] text-[var(--kads-text)] antialiased selection:bg-black selection:text-white min-h-screen flex flex-col">
         {children}
       </body>
     </html>

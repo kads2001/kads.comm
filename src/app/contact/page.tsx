@@ -94,17 +94,17 @@ function ContactFormInner() {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       {/* Form Left with Frosted Glass Container */}
       <div className="lg:col-span-7">
-        <div className="p-8 sm:p-12 rounded-3xl bg-white/85 backdrop-blur-xl border border-white/80 shadow-2xl">
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-zinc-200 shadow-xl">
           {submitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               className="py-12 text-center space-y-4"
             >
-              <div className="w-16 h-16 rounded-[7px] bg-purple-100 text-[#8b5cf6] flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-[7px] bg-black text-white flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0d0d11]">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-[#09090b]">
                 Inquiry Received Successfully!
               </h3>
               <p className="text-zinc-600 text-sm max-w-md mx-auto leading-relaxed">
@@ -115,7 +115,7 @@ function ContactFormInner() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Service Toggle Pills */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-zinc-500 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-zinc-500 mb-3 font-mono">
                   1. SELECT REQUIRED DISCIPLINES
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -126,10 +126,10 @@ function ContactFormInner() {
                         type="button"
                         key={srv.id}
                         onClick={() => toggleService(srv.id)}
-                        className={`px-4 py-2 rounded-[7px] text-xs font-bold transition-all ${
+                        className={`px-4 py-2 rounded-[7px] text-xs font-bold transition-all border ${
                           isSelected
-                            ? "bg-[#8b5cf6] text-white shadow-sm"
-                            : "bg-white/90 border border-zinc-200 text-zinc-700 hover:border-zinc-400"
+                            ? "bg-black text-white border-black shadow-sm"
+                            : "bg-white border-zinc-200 text-zinc-700 hover:border-black"
                         }`}
                       >
                         {srv.name}
@@ -141,7 +141,7 @@ function ContactFormInner() {
 
               {/* Budget Range Selection */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-zinc-500 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-zinc-500 mb-3 font-mono">
                   2. ESTIMATED PROJECT BUDGET (USD)
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -150,10 +150,10 @@ function ContactFormInner() {
                       type="button"
                       key={b}
                       onClick={() => setBudget(b)}
-                      className={`px-4 py-2 rounded-[7px] text-xs font-bold transition-all ${
+                      className={`px-4 py-2 rounded-[7px] text-xs font-bold transition-all border ${
                         budget === b
-                          ? "bg-[#8b5cf6] text-white shadow-sm"
-                          : "bg-white/90 border border-zinc-200 text-zinc-700 hover:border-zinc-400"
+                          ? "bg-black text-white border-black shadow-sm"
+                          : "bg-white border-zinc-200 text-zinc-700 hover:border-black"
                       }`}
                     >
                       {b}
@@ -165,7 +165,7 @@ function ContactFormInner() {
               {/* Name & Email Fields */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                     Your Name *
                   </label>
                   <input
@@ -174,12 +174,12 @@ function ContactFormInner() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-white border border-zinc-200 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                     Work Email *
                   </label>
                   <input
@@ -188,7 +188,7 @@ function ContactFormInner() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-white border border-zinc-200 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors"
                   />
                 </div>
               </div>
@@ -196,7 +196,7 @@ function ContactFormInner() {
               {/* Company & Phone with Flag Selector */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                     Company / Organization
                   </label>
                   <input
@@ -204,12 +204,12 @@ function ContactFormInner() {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Acme Corp"
-                    className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-white border border-zinc-200 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                  <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                     Phone Number
                   </label>
                   <div className="relative flex items-center">
@@ -233,7 +233,7 @@ function ContactFormInner() {
                               setCountryCode(c);
                               setShowCountryDropdown(false);
                             }}
-                            className="w-full px-4 py-2 text-left text-xs font-semibold hover:bg-purple-50 hover:text-[#8b5cf6] flex items-center justify-between"
+                            className="w-full px-4 py-2 text-left text-xs font-semibold hover:bg-zinc-100 hover:text-black flex items-center justify-between"
                           >
                             <span className="flex items-center gap-2">
                               <span className="text-base">{c.flag}</span>
@@ -250,7 +250,7 @@ function ContactFormInner() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="(555) 000-0000"
-                      className="w-full px-4 py-3.5 rounded-r-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3.5 rounded-r-2xl bg-white border border-zinc-200 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors"
                     />
                   </div>
                 </div>
@@ -258,7 +258,7 @@ function ContactFormInner() {
 
               {/* Message */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                <label className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                   Project Goals & Key Requirements *
                 </label>
                 <textarea
@@ -267,7 +267,7 @@ function ContactFormInner() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us about your brand vision, target launch date, and key deliverables..."
-                  className="w-full px-4 py-3.5 rounded-2xl bg-white/90 border border-zinc-200 text-sm focus:border-[#8b5cf6] focus:outline-none transition-colors"
+                  className="w-full px-4 py-3.5 rounded-2xl bg-white border border-zinc-200 text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-colors"
                 />
               </div>
 
@@ -275,7 +275,7 @@ function ContactFormInner() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-[7px] bg-[#8b5cf6] hover:bg-[#6d28d9] text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-xl disabled:opacity-50 hover:scale-[1.01]"
+                className="w-full py-4 rounded-[7px] bg-black hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border border-black shadow-xl disabled:opacity-50 hover:scale-[1.005] cursor-pointer"
               >
                 <Send className="w-4 h-4 text-white" />
                 <span>{isSubmitting ? "Transmitting Proposal Request..." : "Submit Project Brief"}</span>
@@ -287,36 +287,36 @@ function ContactFormInner() {
 
       {/* Info Right */}
       <div className="lg:col-span-5 space-y-8 sticky top-24">
-        <div className="p-8 sm:p-10 rounded-3xl bg-zinc-950/95 backdrop-blur-xl border border-zinc-800 text-white shadow-2xl space-y-6">
+        <div className="p-8 sm:p-10 rounded-3xl bg-zinc-950 text-white shadow-2xl border border-zinc-800 space-y-6">
           <h3 className="text-2xl font-extrabold text-white">What Happens Next?</h3>
 
           <div className="space-y-4 text-xs text-zinc-300">
             <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[7px] bg-[#8b5cf6] text-white flex items-center justify-center font-bold shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-[7px] bg-white text-black flex items-center justify-center font-bold shrink-0 mt-0.5 font-mono">
                 1
               </div>
               <div>
-                <strong className="text-white block">120-Point Technical Review</strong>
+                <strong className="text-white block font-mono text-[13px]">120-Point Technical Review</strong>
                 Senior engineers evaluate your technical requirements and competitor landscape.
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[7px] bg-[#8b5cf6] text-white flex items-center justify-center font-bold shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-[7px] bg-white text-black flex items-center justify-center font-bold shrink-0 mt-0.5 font-mono">
                 2
               </div>
               <div>
-                <strong className="text-white block">Tailored Architecture Proposal</strong>
+                <strong className="text-white block font-mono text-[13px]">Tailored Architecture Proposal</strong>
                 You receive a detailed scope, technology stack recommendation, and fixed quote within 24h.
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-[7px] bg-[#8b5cf6] text-white flex items-center justify-center font-bold shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-[7px] bg-white text-black flex items-center justify-center font-bold shrink-0 mt-0.5 font-mono">
                 3
               </div>
               <div>
-                <strong className="text-white block">Discovery Call & Kickoff</strong>
+                <strong className="text-white block font-mono text-[13px]">Discovery Call & Kickoff</strong>
                 30-minute strategic walkthrough with our founders and senior project lead.
               </div>
             </div>
@@ -324,15 +324,15 @@ function ContactFormInner() {
 
           <div className="pt-6 border-t border-zinc-800 space-y-3 text-xs text-zinc-400">
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-[#8b5cf6]" />
+              <Mail className="w-4 h-4 text-zinc-400" />
               <span>hello@kads.com</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[#8b5cf6]" />
+              <Phone className="w-4 h-4 text-zinc-400" />
               <span>+1 (800) KADS-COM</span>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-[#8b5cf6]" />
+              <MapPin className="w-4 h-4 text-zinc-400" />
               <span>San Francisco · London · Mumbai</span>
             </div>
           </div>
@@ -344,7 +344,7 @@ function ContactFormInner() {
 
 export default function ContactPage() {
   return (
-    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-[#8b5cf6] selection:text-white font-sans">
+    <main className="relative min-h-screen bg-white text-[#0d0d11] selection:bg-black selection:text-white font-sans">
       <ScrollProgress />
       <CustomCursor />
       <Header />
@@ -354,13 +354,13 @@ export default function ContactPage() {
         className="relative pt-40 pb-24 min-h-[50vh] flex flex-col justify-center overflow-hidden bg-cover bg-center text-white"
         style={{ backgroundImage: "url('/images/parallax_agency_bg.jpg')" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/40" />
 
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
           <div className="max-w-4xl">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/15 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white">
-                <span className="w-2.5 h-2.5 rounded-[7px] bg-[#8b5cf6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-[7px] bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider backdrop-blur-md text-white font-mono">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                 <span>GET IN TOUCH · INITIATE A PROJECT</span>
               </span>
             </div>
@@ -381,7 +381,7 @@ export default function ContactPage() {
         className="py-24 bg-fixed bg-cover bg-center text-[#0d0d11] relative"
         style={{ backgroundImage: "url('/images/tech_workspace_bg.jpg')" }}
       >
-        <div className="absolute inset-0 bg-white/94 backdrop-blur-md" />
+        <div className="absolute inset-0 bg-white/96 backdrop-blur-md" />
 
         <div className="w-[90%] max-w-[1500px] mx-auto relative z-10">
           <Suspense fallback={<div className="text-center py-12">Loading Inquiry Brief...</div>}>

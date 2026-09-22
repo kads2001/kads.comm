@@ -39,13 +39,13 @@ export default function AboutSection() {
           className="mb-16 max-w-4xl"
         >
           <span className="kads-pill mb-4 block w-fit">
-            <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
             <span>ABOUT KADS</span>
           </span>
 
           <h2 className="kads-heading mb-6">
             Technology changes fast. Great craftsmanship{" "}
-            <span className="font-serif italic font-normal text-[var(--kads-text-muted)]">
+            <span className="font-serif italic font-normal text-zinc-500">
               makes it endure.
             </span>
           </h2>
@@ -69,11 +69,11 @@ export default function AboutSection() {
                 className="kads-card p-8 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-11 h-11 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple-light)] border border-purple-200 flex items-center justify-center text-[var(--kads-purple)] mb-5">
+                  <div className="w-11 h-11 rounded-[var(--kads-radius-md)] bg-black border border-black flex items-center justify-center text-white mb-5">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-[var(--kads-text)] mb-2">{val.title}</h3>
-                  <p className="text-[var(--kads-text-muted)] text-sm leading-relaxed">{val.desc}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-black mb-2">{val.title}</h3>
+                  <p className="text-zinc-600 text-sm leading-relaxed">{val.desc}</p>
                 </div>
               </motion.div>
             );

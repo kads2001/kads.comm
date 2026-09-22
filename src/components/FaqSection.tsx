@@ -55,7 +55,7 @@ export default function FaqSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
             <span className="kads-pill">
-              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               <span>FAQ</span>
             </span>
             <h2 className="kads-heading">
@@ -73,11 +73,11 @@ export default function FaqSection() {
             return (
               <div
                 key={index}
-                className="rounded-[var(--kads-radius-xl)] bg-white border border-[var(--kads-border)] overflow-hidden transition-all shadow-[var(--kads-shadow-sm)] hover:border-[var(--kads-purple)] hover:shadow-[var(--kads-shadow-md)]"
+                className="rounded-[var(--kads-radius-xl)] bg-white border border-[var(--kads-border)] overflow-hidden transition-all shadow-[var(--kads-shadow-sm)] hover:border-black hover:shadow-[var(--kads-shadow-md)]"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none"
+                  className="w-full p-6 sm:p-7 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                 >
@@ -86,7 +86,7 @@ export default function FaqSection() {
                   </span>
                   <div
                     className={`w-8 h-8 rounded-[var(--kads-radius-sm)] flex items-center justify-center shrink-0 transition-all duration-200 ${
-                      isOpen ? "rotate-180 bg-[var(--kads-purple)] text-white" : "bg-zinc-100 text-black"
+                      isOpen ? "rotate-180 bg-black text-white" : "bg-zinc-100 text-black"
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />

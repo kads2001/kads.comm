@@ -15,7 +15,7 @@ export default function TestimonialsSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
             <span className="kads-pill">
-              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
               <span>CLIENT FEEDBACK</span>
             </span>
             <h2 className="kads-heading">
@@ -35,8 +35,8 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center py-16"
         >
-          <div className="w-16 h-16 rounded-2xl bg-[var(--kads-purple-light)] flex items-center justify-center mx-auto mb-6">
-            <MessageSquare className="w-7 h-7 text-[var(--kads-purple)]" />
+          <div className="w-16 h-16 rounded-2xl bg-black flex items-center justify-center mx-auto mb-6">
+            <MessageSquare className="w-7 h-7 text-white" />
           </div>
 
           <h3 className="text-xl sm:text-2xl font-bold text-[var(--kads-text)] mb-4">

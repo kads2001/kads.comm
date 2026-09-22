@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, Mail, MapPin, ChevronDown } from "lucide-react";
+import { Send, CheckCircle2, Mail, MapPin, ChevronDown, Clock, ShieldCheck } from "lucide-react";
 
 const COUNTRY_CODES = [
   { code: "+1", country: "US/CA", flag: "🇺🇸" },
@@ -45,11 +45,11 @@ export default function QuickContactFormSection() {
       style={{ paddingTop: "var(--kads-section-py)", paddingBottom: "var(--kads-section-py)" }}
     >
       <div className="kads-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 min-[1600px]:gap-16 items-start">
           {/* Left Column: Headline & Contact Channels */}
           <div className="lg:col-span-5 space-y-6">
             <span className="kads-pill">
-              <span className="w-2 h-2 rounded-full bg-[var(--kads-purple)] animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
               <span>GET IN TOUCH</span>
             </span>
 
@@ -63,30 +63,50 @@ export default function QuickContactFormSection() {
 
             {/* Direct Contact */}
             <div className="pt-2 space-y-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--kads-purple)] block">
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 block font-mono">
                 Direct Contact
               </span>
               <div className="grid grid-cols-1 gap-3">
                 <a
                   href="mailto:hello@kads.com"
-                  className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)] hover:border-[var(--kads-purple)] transition-colors"
+                  className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)] hover:border-black transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple-light)] border border-purple-200 flex items-center justify-center text-[var(--kads-purple)] shrink-0">
+                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-black text-white flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block">Email</span>
+                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block font-mono">Email</span>
                     <span className="text-sm font-bold text-[var(--kads-text)]">hello@kads.com</span>
                   </div>
                 </a>
 
                 <div className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
-                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-[var(--kads-purple-light)] border border-purple-200 flex items-center justify-center text-[var(--kads-purple)] shrink-0">
+                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-black text-white flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block">Location</span>
+                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block font-mono">Location</span>
                     <span className="text-sm font-bold text-[var(--kads-text)]">Remote-First Studio</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
+                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-black text-white flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block font-mono">Response Time</span>
+                    <span className="text-sm font-bold text-[var(--kads-text)]">Within 24 Hours</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 p-4 rounded-[var(--kads-radius-lg)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
+                  <div className="w-9 h-9 rounded-[var(--kads-radius-md)] bg-black text-white flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-[var(--kads-text-subtle)] uppercase tracking-wider font-semibold block font-mono">Guarantees</span>
+                    <span className="text-sm font-bold text-[var(--kads-text)]">100% Commercial IP Handover</span>
                   </div>
                 </div>
               </div>
@@ -95,14 +115,14 @@ export default function QuickContactFormSection() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-[var(--kads-radius-xl)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
+            <div className="p-8 sm:p-10 min-[1600px]:p-12 rounded-[var(--kads-radius-xl)] bg-white border border-[var(--kads-border)] shadow-[var(--kads-shadow-sm)]">
               {submitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-12 text-center space-y-4"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-[var(--kads-purple-light)] text-[var(--kads-purple)] flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-2xl bg-black text-white flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-extrabold text-[var(--kads-text)]">
@@ -117,7 +137,7 @@ export default function QuickContactFormSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div>
-                      <label htmlFor="contact-name" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      <label htmlFor="contact-name" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                         Your Name *
                       </label>
                       <input
@@ -127,13 +147,13 @@ export default function QuickContactFormSection() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Jane Doe"
-                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-all"
                       />
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="contact-email" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      <label htmlFor="contact-email" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                         Work Email *
                       </label>
                       <input
@@ -143,7 +163,7 @@ export default function QuickContactFormSection() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="jane@company.com"
-                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-all"
                       />
                     </div>
                   </div>
@@ -151,7 +171,7 @@ export default function QuickContactFormSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Company */}
                     <div>
-                      <label htmlFor="contact-company" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      <label htmlFor="contact-company" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                         Company
                       </label>
                       <input
@@ -160,20 +180,20 @@ export default function QuickContactFormSection() {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder="Your company name"
-                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-all"
                       />
                     </div>
 
                     {/* Service Interest */}
                     <div>
-                      <label htmlFor="contact-service" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                      <label htmlFor="contact-service" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                         Service Needed
                       </label>
                       <select
                         id="contact-service"
                         value={formData.service}
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all appearance-none"
+                        className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-all appearance-none"
                       >
                         <option value="">Select a service</option>
                         <option value="web-development">Web Development</option>
@@ -189,7 +209,7 @@ export default function QuickContactFormSection() {
 
                   {/* Phone with Country Code */}
                   <div>
-                    <label htmlFor="contact-phone" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                    <label htmlFor="contact-phone" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                       Phone Number
                     </label>
                     <div className="relative flex items-center">
@@ -217,7 +237,7 @@ export default function QuickContactFormSection() {
                                 setCountryCode(c);
                                 setShowCountryDropdown(false);
                               }}
-                              className="w-full px-4 py-2 text-left text-xs font-semibold hover:bg-[var(--kads-purple-light)] hover:text-[var(--kads-purple)] flex items-center justify-between"
+                              className="w-full px-4 py-2 text-left text-xs font-semibold hover:bg-zinc-100 hover:text-black flex items-center justify-between"
                             >
                               <span className="flex items-center gap-2">
                                 <span className="text-lg">{c.flag}</span>
@@ -235,14 +255,14 @@ export default function QuickContactFormSection() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="(555) 000-0000"
-                        className="w-full px-4 py-3.5 rounded-r-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all"
+                        className="w-full px-4 py-3.5 rounded-r-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-all"
                       />
                     </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="contact-message" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5">
+                    <label htmlFor="contact-message" className="block text-xs uppercase tracking-wider font-bold text-zinc-700 mb-1.5 font-mono">
                       Project Details *
                     </label>
                     <textarea
@@ -252,7 +272,7 @@ export default function QuickContactFormSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell us about your project goals, timeline, and any specific requirements..."
-                      className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-[var(--kads-purple)] focus:outline-none focus:ring-2 focus:ring-[var(--kads-purple)]/20 transition-all resize-none"
+                      className="w-full px-4 py-3.5 rounded-[var(--kads-radius-md)] bg-white border border-[var(--kads-border)] text-sm focus:border-black focus:outline-none focus:ring-1 focus:ring-black transition-all resize-none"
                     />
                   </div>
 
@@ -260,10 +280,10 @@ export default function QuickContactFormSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-[var(--kads-radius-sm)] bg-[var(--kads-purple)] hover:bg-[var(--kads-purple-hover)] text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-[var(--kads-shadow-purple)] disabled:opacity-50 hover:shadow-[0_15px_30px_-5px_rgba(139,92,246,0.45)]"
+                    className="w-full py-4 rounded-[var(--kads-radius-sm)] bg-black hover:bg-zinc-800 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border border-black shadow-md disabled:opacity-50 active:scale-[0.99] cursor-pointer"
                   >
                     <Send className="w-4 h-4" />
-                    <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                    <span>{isSubmitting ? "Sending Brief..." : "Send Message"}</span>
                   </button>
                 </form>
               )}
